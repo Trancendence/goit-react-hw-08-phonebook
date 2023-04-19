@@ -1,11 +1,12 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-import { ContactForm } from "./Form/Form";
-import { ContactList } from "./List/List";
-import { fetchContacts } from "redux/operations";
-import { selectIsLoading } from "redux/selectors";
-import { selectError } from "redux/selectors";
-import { Filter } from "./Filter/Filter";
+import { ContactForm } from 'components/Form/Form';
+import { ContactList } from 'components/List/List';
+import { fetchContacts } from 'redux/operations';
+import { selectIsLoading } from 'redux/selectors.js';
+import { selectError } from 'redux/selectors.js';
+import { Filter } from 'components/Filter/Filter';
+
 
 export const App = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -16,14 +17,15 @@ export const App = () => {
     dispatch(fetchContacts())
   }, [dispatch]);
 
+
   return (
     <>
     {error && <p>{error}</p>}
 
     {isLoading? (
-      <p>Wait a little...</p>
-    ) : (
-      <div>
+        <p>Wait a little... </p>
+      ) : (
+        <div
         style={{
           width: 400,
           padding: '12px 16px',
@@ -32,16 +34,16 @@ export const App = () => {
           color: 'white',
           textAlign: 'center',
         }}
-      
+      >
         <h1>Phonebook</h1>
         <ContactForm />
-
+  
         <h2>Contacts</h2>
         <Filter />
-
+  
         <ContactList />
       </div>
-    )}
+      )}
     </>
   );
 };
