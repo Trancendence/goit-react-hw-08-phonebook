@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { ContactForm } from "./Form/Form";
+import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./List/List";
 import { fetchContacts } from "redux/operations";
 import { selectIsLoading } from "redux/selectors";
